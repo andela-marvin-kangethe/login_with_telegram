@@ -1,5 +1,9 @@
 Rails.application.configure do
+<<<<<<< HEAD
     config.webpacker.check_yarn_integrity = true  # Settings specified here will take precedence over those in config/application.rb.
+=======
+  # Settings specified here will take precedence over those in config/application.rb.
+>>>>>>> 71425c4... Initial commit
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

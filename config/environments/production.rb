@@ -1,5 +1,9 @@
 Rails.application.configure do
+<<<<<<< HEAD
    config.webpacker.check_yarn_integrity = false  # Settings specified here will take precedence over those in config/application.rb.
+=======
+  # Settings specified here will take precedence over those in config/application.rb.
+>>>>>>> 71425c4... Initial commit
 
   # Code is not reloaded between requests.
   config.cache_classes = true

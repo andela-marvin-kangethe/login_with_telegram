@@ -1,6 +1,7 @@
 {
   "name": "LoginWithTelegram",
   "private": true,
+<<<<<<< HEAD
   "dependencies": {
     "@rails/webpacker": "^3.2.1"
   },
@@ -9,4 +10,7 @@
     "tailwindcss": "^0.4.1",
     "webpack-dev-server": "^2.11.1"
   }
+=======
+  "dependencies": {}
+>>>>>>> 71425c4... Initial commit
 }
