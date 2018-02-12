@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
  
 # Add the devise gem
 gem 'devise', '~>4.3.0'
+# Add a faker gem
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
