@@ -72,3 +72,238 @@ FOREIGN KEY ("user_id")
             FROM sqlite_temp_master
             WHERE name='index_skills_on_user_id' AND type='index'
 [0m
+Started GET "/" for 127.0.0.1 at 2018-02-10 00:29:05 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (8.6ms)
+Completed 200 OK in 26ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-10 00:32:55 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (254.8ms)
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_user_path' for #<#<Class:0x007f8460331850>:0x007f846032ac30>
+Did you mean?  new_skill_user_path):
+    26: 
+    27: <br>
+    28: 
+    29: <%= link_to 'New User', new_user_path %>
+  
+app/views/users/index.html.erb:29:in `_app_views_users_index_html_erb___4109063854928267899_70103263188460'
+Started GET "/" for 127.0.0.1 at 2018-02-10 00:34:09 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 1116ms (Views: 1110.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-02-10 00:34:17 +0300
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (43.0ms)
+  Rendered users/new.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 95ms (Views: 73.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-02-10 00:34:31 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RGlZeP8NAv4AwuvzunFxPCxaye9eXGI28mFfneHK4Ler1iV0HZjDBYNAAmKyhRy+oNiq9YH9/JATCZxdqfwyuA==", "user"=>{"name"=>"marvin", "salary"=>"30.00"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "marvin"], ["salary", 30.0], ["created_at", "2018-02-09 21:34:31.527839"], ["updated_at", "2018-02-09 21:34:31.527839"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://login-with-telegram.dev.com:3000/users/1
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-02-10 00:34:31 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 45ms (Views: 33.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Harmony Cartwright"], ["salary", 150.05], ["created_at", "2018-02-09 21:50:48.215183"], ["updated_at", "2018-02-09 21:50:48.215183"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["name", "Perl"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.216751"], ["updated_at", "2018-02-09 21:50:48.216751"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["name", "Lua"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.217561"], ["updated_at", "2018-02-09 21:50:48.217561"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["name", "Prolog"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.218236"], ["updated_at", "2018-02-09 21:50:48.218236"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["name", "Swift"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.218886"], ["updated_at", "2018-02-09 21:50:48.218886"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["name", "D"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.219596"], ["updated_at", "2018-02-09 21:50:48.219596"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kennedi Hintz"], ["salary", 524.74], ["created_at", "2018-02-09 21:50:48.223552"], ["updated_at", "2018-02-09 21:50:48.223552"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["name", "Java"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.224520"], ["updated_at", "2018-02-09 21:50:48.224520"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["name", "Lua"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.225282"], ["updated_at", "2018-02-09 21:50:48.225282"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["name", "Smalltalk"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.226042"], ["updated_at", "2018-02-09 21:50:48.226042"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["name", "Prolog"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.226714"], ["updated_at", "2018-02-09 21:50:48.226714"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["name", "Ruby"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.231916"], ["updated_at", "2018-02-09 21:50:48.231916"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Augustus Tromp"], ["salary", 776.86], ["created_at", "2018-02-09 21:50:48.237310"], ["updated_at", "2018-02-09 21:50:48.237310"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["name", "Fortress"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.238814"], ["updated_at", "2018-02-09 21:50:48.238814"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["name", "Lua"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.239802"], ["updated_at", "2018-02-09 21:50:48.239802"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["name", "Go"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.240624"], ["updated_at", "2018-02-09 21:50:48.240624"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["name", "Prolog"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.241460"], ["updated_at", "2018-02-09 21:50:48.241460"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 4], ["name", "Go"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.242463"], ["updated_at", "2018-02-09 21:50:48.242463"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Aileen Jenkins"], ["salary", 489.54], ["created_at", "2018-02-09 21:50:48.247940"], ["updated_at", "2018-02-09 21:50:48.247940"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 5], ["name", "ALGOL"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.249435"], ["updated_at", "2018-02-09 21:50:48.249435"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 5], ["name", "C++"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.250943"], ["updated_at", "2018-02-09 21:50:48.250943"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 5], ["name", "Perl"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.251856"], ["updated_at", "2018-02-09 21:50:48.251856"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 5], ["name", "Haskell"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.252545"], ["updated_at", "2018-02-09 21:50:48.252545"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 5], ["name", "FORTRAN"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.253215"], ["updated_at", "2018-02-09 21:50:48.253215"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Alexandra Lebsack"], ["salary", 416.31], ["created_at", "2018-02-09 21:50:48.257287"], ["updated_at", "2018-02-09 21:50:48.257287"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 6], ["name", "C"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.258313"], ["updated_at", "2018-02-09 21:50:48.258313"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 6], ["name", "Perl"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.259052"], ["updated_at", "2018-02-09 21:50:48.259052"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 6], ["name", "C++"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.259734"], ["updated_at", "2018-02-09 21:50:48.259734"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 6], ["name", "C"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.260385"], ["updated_at", "2018-02-09 21:50:48.260385"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 6], ["name", "ALGOL"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.261033"], ["updated_at", "2018-02-09 21:50:48.261033"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Kelly Fadel"], ["salary", 977.11], ["created_at", "2018-02-09 21:50:48.265960"], ["updated_at", "2018-02-09 21:50:48.265960"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 7], ["name", "Haskell"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.267393"], ["updated_at", "2018-02-09 21:50:48.267393"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 7], ["name", "Fortress"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.268206"], ["updated_at", "2018-02-09 21:50:48.268206"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 7], ["name", "Java"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.268879"], ["updated_at", "2018-02-09 21:50:48.268879"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 7], ["name", "Clojure"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.269529"], ["updated_at", "2018-02-09 21:50:48.269529"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 7], ["name", "COBOL"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.270286"], ["updated_at", "2018-02-09 21:50:48.270286"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Geovanny Bernier II"], ["salary", 181.27], ["created_at", "2018-02-09 21:50:48.274097"], ["updated_at", "2018-02-09 21:50:48.274097"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 8], ["name", "Smalltalk"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.275086"], ["updated_at", "2018-02-09 21:50:48.275086"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 8], ["name", "C"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.276014"], ["updated_at", "2018-02-09 21:50:48.276014"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 8], ["name", "Haskell"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.276703"], ["updated_at", "2018-02-09 21:50:48.276703"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 8], ["name", "Prolog"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.277356"], ["updated_at", "2018-02-09 21:50:48.277356"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 8], ["name", "Scala"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.278203"], ["updated_at", "2018-02-09 21:50:48.278203"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Consuelo Botsford IV"], ["salary", 582.35], ["created_at", "2018-02-09 21:50:48.282336"], ["updated_at", "2018-02-09 21:50:48.282336"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 9], ["name", "FORTRAN"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.283406"], ["updated_at", "2018-02-09 21:50:48.283406"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 9], ["name", "Simula"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.285043"], ["updated_at", "2018-02-09 21:50:48.285043"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 9], ["name", "ALGOL"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.286190"], ["updated_at", "2018-02-09 21:50:48.286190"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 9], ["name", "JavaScript"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.287512"], ["updated_at", "2018-02-09 21:50:48.287512"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 9], ["name", "Java"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.288733"], ["updated_at", "2018-02-09 21:50:48.288733"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Charlie Wolff"], ["salary", 749.81], ["created_at", "2018-02-09 21:50:48.293917"], ["updated_at", "2018-02-09 21:50:48.293917"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 10], ["name", "Perl"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.294891"], ["updated_at", "2018-02-09 21:50:48.294891"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 10], ["name", "Ruby"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.295811"], ["updated_at", "2018-02-09 21:50:48.295811"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 10], ["name", "Simula"], ["level", "Beginner"], ["created_at", "2018-02-09 21:50:48.296504"], ["updated_at", "2018-02-09 21:50:48.296504"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 10], ["name", "Clojure"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.297535"], ["updated_at", "2018-02-09 21:50:48.297535"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 10], ["name", "FORTRAN"], ["level", "Intermediate"], ["created_at", "2018-02-09 21:50:48.304167"], ["updated_at", "2018-02-09 21:50:48.304167"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "salary", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Morgan Ruecker"], ["salary", 861.45], ["created_at", "2018-02-09 21:50:48.309230"], ["updated_at", "2018-02-09 21:50:48.309230"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 11], ["name", "C#"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.310265"], ["updated_at", "2018-02-09 21:50:48.310265"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 11], ["name", "D"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.311060"], ["updated_at", "2018-02-09 21:50:48.311060"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 11], ["name", "Haskell"], ["level", "Advanced"], ["created_at", "2018-02-09 21:50:48.311821"], ["updated_at", "2018-02-09 21:50:48.311821"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 11], ["name", "C#"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.312575"], ["updated_at", "2018-02-09 21:50:48.312575"]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "name", "level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 11], ["name", "Ruby"], ["level", "Senior"], ["created_at", "2018-02-09 21:50:48.313339"], ["updated_at", "2018-02-09 21:50:48.313339"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/1" for 127.0.0.1 at 2018-02-10 00:50:58 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 404 Not Found in 55ms (ActiveRecord: 3.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:67:in `set_user'
+Started GET "/" for 127.0.0.1 at 2018-02-10 00:51:13 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 78ms (Views: 73.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-02-10 00:51:22 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 90ms (Views: 84.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-10 14:42:01 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.9ms)
+
+
+  
+SyntaxError (/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+...script_include_tag 'application', 'data-turbolinks-track': '...
+...                               ^
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nclude_tag 'application', 'data-turbolinks-track': 'reload' ...
+...                               ^
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:10: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...ation', 'data-turbolinks-track': 'reload' );@output_buffer.s...
+...                               ^
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+...data-turbolinks-track': 'reload' );@output_buffer.safe_appen...
+...                               ^
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:11: syntax error, unexpected '<', expecting ')'
+  </head>
+   ^
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:15: unknown regexp options - bdy
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+</html>
+ ^
+/Users/marvin/Documents/BelleInc/login_with_telegram/app/views/layouts/application.html.erb:16: unterminated regexp meets end of file):
+  
+app/views/layouts/application.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+app/views/layouts/application.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:11: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:15: unknown regexp options - bdy
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:16: unterminated regexp meets end of file
+Started GET "/" for 127.0.0.1 at 2018-02-10 14:42:37 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (7.1ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/marvin/Documents/BelleInc/login_with_telegram/public/packs
+Completed 200 OK in 7217ms (Views: 7213.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-02-12 13:31:54 +0300
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (12.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (83.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/marvin/Documents/BelleInc/login_with_telegram/public/packs
+Completed 200 OK in 9154ms (Views: 9097.2ms | ActiveRecord: 12.7ms)
+
+
