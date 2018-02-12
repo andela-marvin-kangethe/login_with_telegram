@@ -7,4 +7,5 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
   # validates :phone_number, uniqueness: true
+  has_many :programming_skills
 end

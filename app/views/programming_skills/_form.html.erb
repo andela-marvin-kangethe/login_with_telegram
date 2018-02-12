@@ -1,0 +1,27 @@
+<%= form_with(model: programming_skill, local: true) do |form| %>
+  <% if programming_skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(programming_skill.errors.count, "error") %> prohibited this programming_skill from being saved:</h2>
+
+      <ul>
+      <% programming_skill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :programming_skill_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level_of_experience %>
+    <%= form.text_field :level_of_experience, id: :programming_skill_level_of_experience %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
